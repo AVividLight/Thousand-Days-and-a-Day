@@ -1,6 +1,8 @@
 # Thousand Days and a Day
 By 2Cat Studios
 
+NOTE: This README (like the project) is under construction. Expect things to change.
+
 ### Table of Contents
 
 0. Preamble
