@@ -5,28 +5,27 @@ NOTE: This README (like the project) is under construction. Expect things to cha
 
 ### Table of Contents
 
-0. Preamble
-1. How to Build
+0. [Preamble](#preamble)
+1. [How to Build](#how-to-build)
 
-Preamble
+#Preamble
 ---
 *Thousand Days and a Day* is an in-development project to bring choose-your-own-adventure games into a modern digital space. The details are still emerging, however our end goal is crystal clear; *TDD* will be an open, expansive, story-driven adventure which takes players on memorable journeys, and asks weighty moral questions with no "right answers". Players will have to live with their mistakes, and the focus will be on creating a unique and engaging story, rather than winning.
 
 Some degree of online play will exist, however we're still deciding on what this will look like. Full realtime and asychronous games are among the options we're considering. We will do all we can to make user stories, from a single addition in the main game, to full games in their own right, as easy to create as possible, and have been working from the very start with this in mind. That said, our primary focus right now is the game itself, and "modding" support will come at a later date.
 
 
-How to Build
+#How to Build
 ---
 We are not currently releasing compiled builds (as the project is not in a very presentable state), but we do encourage you, dear reader, to take the initiative and build from the master-branch yourself. Following are the steps we take to build the project, and support will certainly be given if you're having any trouble getting it to build on your own machine, please reach out to us on our [website](https://2catstudios.github.io/main.html).
 
-# Prerequisites
-## Essentials
+# Essentials
 
 You'll need a compiler that has been updated to at least the C++11 standard. For primary development, we use Apple's standard Clang & LLVM, but [GCC](https://gcc.gnu.org) 4.8.1 or greater should work just as well.
 
 [CMake](https://cmake.org) is used to simplify the building process, and should be kept up to date. The minimum version required is 3.0.
 
-## Required Frameworks
+# Required Frameworks
 
 [SDL2](https://www.libsdl.org/download-2.0.php): The core window library we're using. Installation instructions can be found on their website.
 
@@ -34,7 +33,7 @@ You'll need a compiler that has been updated to at least the C++11 standard. For
 
 [SDL2 Image](https://www.libsdl.org/projects/SDL_image/): Another extention, SDL2 Image allows us to display images in an SDL2 window with ease. This library goes in the same place as SDL2 and SDL2 TTF; follow the installation instructions provided on their website.
 
-## Naught to Sixty for the Novice
+# Naught to Sixty for the Novice
 ### You do have a compiler, right?
 If you're on Mac OS X, download the latest stable version of [XCode](https://developer.apple.com/xcode/), for Windows, use [Visual Studio](https://www.visualstudio.com), and Linux, [GCC](https://gcc.gnu.org).
 
