@@ -3,10 +3,18 @@ By 2Cat Studios
 
 NOTE: This README (like the project) is under construction. Expect things to change.
 
+
+
 ### Table of Contents
 
 0. [Preamble](#preamble)
 1. [How to Build](#how-to-build)
+	* [Essentials](#essentials)
+	* [Required Frameworks](#required-frameworks)
+	* [Beginner's Guide](#naught-to-sixty-for-the-novice)
+2. [Thanks](#thanks)
+
+
 
 #Preamble
 ---
@@ -15,17 +23,18 @@ NOTE: This README (like the project) is under construction. Expect things to cha
 Some degree of online play will exist, however we're still deciding on what this will look like. Full realtime and asychronous games are among the options we're considering. We will do all we can to make user stories, from a single addition in the main game, to full games in their own right, as easy to create as possible, and have been working from the very start with this in mind. That said, our primary focus right now is the game itself, and "modding" support will come at a later date.
 
 
+
 #How to Build
 ---
 We are not currently releasing compiled builds (as the project is not in a very presentable state), but we do encourage you, dear reader, to take the initiative and build from the master-branch yourself. Following are the steps we take to build the project, and support will certainly be given if you're having any trouble getting it to build on your own machine, please reach out to us on our [website](https://2catstudios.github.io/main.html).
 
-# Essentials
+#Essentials
 
 You'll need a compiler that has been updated to at least the C++11 standard. For primary development, we use Apple's standard Clang & LLVM, but [GCC](https://gcc.gnu.org) 4.8.1 or greater should work just as well.
 
 [CMake](https://cmake.org) is used to simplify the building process, and should be kept up to date. The minimum version required is 3.0.
 
-# Required Frameworks
+#Required Frameworks
 
 [SDL2](https://www.libsdl.org/download-2.0.php): The core window library we're using. Installation instructions can be found on their website.
 
@@ -33,7 +42,7 @@ You'll need a compiler that has been updated to at least the C++11 standard. For
 
 [SDL2 Image](https://www.libsdl.org/projects/SDL_image/): Another extention, SDL2 Image allows us to display images in an SDL2 window with ease. This library goes in the same place as SDL2 and SDL2 TTF; follow the installation instructions provided on their website.
 
-# Naught to Sixty for the Novice
+#Naught to Sixty for the Novice
 ### You do have a compiler, right?
 If you're on Mac OS X, download the latest stable version of [XCode](https://developer.apple.com/xcode/), for Windows, use [Visual Studio](https://www.visualstudio.com), and Linux, [GCC](https://gcc.gnu.org).
 
@@ -56,3 +65,17 @@ Click "Generate" once each name has a value, and barring any errors, let's make 
 
 ### Make the application.
 Open your terminal of choice, change the working directory to your build directory (where you told CMake to build the binaries), which can usually be done with the `cd ` command (Ex: `cd /Users/michaelbethke/Documents/Development/Projects/Thousand Days and a Day/build`). Do note: most terminals support drag-and-drop, so just type 'cd ' (don't forget the trailing space), then drop your build folder in, and press return. We're almost done! Just type 'make' now, and unless the project has any blatant errors, you'll eventually see `[100%] Built target ThousandDaysAndADay`. That's a good sign, and means you can navigate to `/bin`, located inside your build directory, to run the program! It'll start up with your terminal, don't let that spook you, and have fun!
+
+
+
+#Thanks
+---
+We'd like to thank the following for their help, without them, whether they're aware of their assistance or not, this project would not be in as complete a state as it may currently be found. This list is not exhaustive, already, I'm sure I forgot some amazing StackOverflow posts.
+
+[Will Usher](http://www.willusher.io) for the amazing SDL2 tutorials.
+
+[Lazy Foo' Productions](http://lazyfoo.net) for the SDL2 examples.
+
+[Jet Brains](https://www.jetbrains.com) for your CMake explinations.
+
+[The C++ Reference](http://en.cppreference.com/w/) for... existing.
