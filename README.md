@@ -66,6 +66,7 @@ Click "Generate" once each name has a value, and barring any errors, let's make 
 ### Make the application.
 Open your terminal of choice, change the working directory to your build directory (where you told CMake to build the binaries), which can usually be done with the `cd ` command (Ex: `cd /Users/michaelbethke/Documents/Development/Projects/Thousand Days and a Day/build`). Do note: most terminals support drag-and-drop, so just type 'cd ' (don't forget the trailing space), then drop your build folder in, and press return. We're almost done! Just type 'make' now, and unless the project has any blatant errors, you'll eventually see `[100%] Built target ThousandDaysAndADay`. That's a good sign, and means you can navigate to `/bin`, located inside your build directory, to run the program! It'll start up with your terminal, don't let that spook you, and have fun!
 
+Whenever a change is made to the program, whether you edit some code or sync the project with the master branch, you'll need to do this step again. In practice, 'making' can function as your debugger, and keeping a terminal around while you're working on the code is a good idea.
 
 
 #Thanks
