@@ -23,8 +23,11 @@ include_directories(${SDL2_IMAGE_INCLUDE_DIR})
 #Include all files in the /include directory (our .h files)
 include_directories(include)
 
+
+
 #Add our code to the project
-add_executable(ThousandDaysAndADay src/main.cpp src/UIManager.cpp lib/pugixml.cpp)
+add_executable(ThousandDaysAndADay src/main.cpp src/WindowManager.cpp src/EventManager.cpp lib/pugixml.cpp)
+
 
 
 #Link the found libraries
