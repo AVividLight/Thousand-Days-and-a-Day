@@ -12,27 +12,25 @@ class WindowManager
 {
 	
 public:
-	int InitializeSDL ();
-	int CreateMainWindow ();
+	int initializeSDL ();
+	int createMainWindow ();
 	
-	int GetInput ();
-	
-	int ShutdownSDL ();
+	int shutdownSDL ();
 
 private:
-	const char MAIN_WINDOW_TITLE[24] = "Thousand Days and a Day";
-	const int MAIN_WINDOW_WIDTH = 800;
-	const int MAIN_WINDOW_HEIGHT = 600;
+	const char m_MAIN_WINDOW_TITLE[24] = "Thousand Days and a Day";
+	const int m_MAIN_WINDOW_WIDTH = 800;
+	const int m_MAIN_WINDOW_HEIGHT = 600;
 	
-	SDL_Window *window;
-	SDL_Renderer *renderer;
+	SDL_Window *m_window;
+	SDL_Renderer *m_renderer;
 	
-	TTF_Font *prettyWhiteFont;
+	TTF_Font *m_prettyWhiteFont;
 	
-	SDL_Color colourWhite = {255, 255, 255};
-	SDL_Color colourLightGrey = {192, 192, 192};
-	SDL_Color colourDarkGrey = {64, 64, 64};
-	SDL_Color colourBlack = {0, 0, 0};
+	SDL_Color m_colourWhite = {255, 255, 255};
+	SDL_Color m_colourLightGrey = {192, 192, 192};
+	SDL_Color m_colourDarkGrey = {64, 64, 64};
+	SDL_Color m_colourBlack = {0, 0, 0};
 };
 
 #endif //WINDOWMANAGER_H

@@ -1,7 +1,7 @@
 ﻿#include "WindowManager.h"
 
 
-int WindowManager::InitializeSDL ()
+int WindowManager::initializeSDL ()
 {
 	
 	if (SDL_Init (SDL_INIT_VIDEO) != 0)
@@ -21,7 +21,7 @@ int WindowManager::InitializeSDL ()
 }
 
 
-int WindowManager::CreateMainWindow ()
+int WindowManager::createMainWindow ()
 {
 	
 	SDL_DisplayMode displayMode;
@@ -32,19 +32,19 @@ int WindowManager::CreateMainWindow ()
 		return 1;
 	}
 	
-	window = SDL_CreateWindow (MAIN_WINDOW_TITLE, ((displayMode.w / 2) - MAIN_WINDOW_WIDTH / 2), ((displayMode.h / 2) - MAIN_WINDOW_HEIGHT / 2), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
-	if (window == nullptr)
+	m_window = SDL_CreateWindow (m_MAIN_WINDOW_TITLE, ((displayMode.w / 2) - m_MAIN_WINDOW_WIDTH / 2), ((displayMode.h / 2) - m_MAIN_WINDOW_HEIGHT / 2), m_MAIN_WINDOW_WIDTH, m_MAIN_WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+	if (m_window == nullptr)
 	{
 	
 		SDL_Quit ();
 		return 1;
 	}
 	
-	renderer = SDL_CreateRenderer (window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (renderer == nullptr)
+	m_renderer = SDL_CreateRenderer (m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (m_renderer == nullptr)
 	{
 	
-		cleanup (window);
+		cleanup (m_window);
 		SDL_Quit ();
 		return 1;
 	}
@@ -53,11 +53,11 @@ int WindowManager::CreateMainWindow ()
 }
 
 
-int WindowManager::ShutdownSDL ()
+int WindowManager::shutdownSDL ()
 {
 	
 	TTF_Quit ();
-	cleanup (renderer, window);
+	cleanup (m_renderer, m_window);
 	SDL_Quit ();
 	
 	return 0;
