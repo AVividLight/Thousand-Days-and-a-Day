@@ -12,10 +12,10 @@ class WindowManager
 {
 	
 public:
-	int initializeSDL ();
-	int createMainWindow ();
+	int InitializeSDL ();
+	int CreateMainWindow ();
 	
-	int shutdownSDL ();
+	int ShutdownSDL ();
 
 private:
 	const char m_MAIN_WINDOW_TITLE[24] = "Thousand Days and a Day";

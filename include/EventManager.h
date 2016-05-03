@@ -7,7 +7,7 @@
 class EventManager
 {
 public:
-	int pollInput (WindowManager &windowManager);
+	int PollInput (WindowManager &windowManager);
 
 private:
 	

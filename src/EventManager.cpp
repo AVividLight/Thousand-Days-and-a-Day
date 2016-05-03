@@ -1,7 +1,7 @@
 ﻿#include "EventManager.h"
 
 
-int EventManager::pollInput (WindowManager &windowManager)
+int EventManager::PollInput (WindowManager &windowManager)
 {
 	
 	SDL_Event event;
@@ -15,12 +15,15 @@ int EventManager::pollInput (WindowManager &windowManager)
 			{
 				
 				case SDL_QUIT:
-					if (windowManager.shutdownSDL () != 0)
+					/*if (windowManager.ShutdownSDL () != 0)
 					{
+						
 						return 1;
 					} else {
+						
 						return 0;
-					}
+					}*/
+					return 1;
 					break;
 					
 				case SDL_MOUSEBUTTONDOWN:

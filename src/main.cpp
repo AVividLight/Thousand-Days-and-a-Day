@@ -8,14 +8,14 @@ EventManager eventManager;
 int main (int argc, char *argv[])
 {	
 	
-	if (windowManager.initializeSDL () != 0)
+	if (windowManager.InitializeSDL () != 0)
 	{
 		
 		std::cout << "Unable to initialize SDL!" << std::endl;
 		return 1;
 	}
 	
-	if (windowManager.createMainWindow () != 0)
+	if (windowManager.CreateMainWindow () != 0)
 	{
 		
 		std::cout << "Unable to create main window!" << std::endl;
@@ -30,12 +30,15 @@ int main (int argc, char *argv[])
 		//1. Logic
 		//2. Rendering
 		
-		if (eventManager.pollInput (windowManager) != 0)
+		if (eventManager.PollInput (windowManager) != 0)
 		{
 			
-			std::cout << "Critical failure in the EventManager!" << std::endl;
+			//std::cout << "Critical failure in the EventManager!" << std::endl;
+			quit = true;
 		}
 	}
+	
+	windowManager.ShutdownSDL ();
 
 	return 0;
 }

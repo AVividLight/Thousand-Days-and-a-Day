@@ -1,7 +1,7 @@
 ﻿#include "WindowManager.h"
 
 
-int WindowManager::initializeSDL ()
+int WindowManager::InitializeSDL ()
 {
 	
 	if (SDL_Init (SDL_INIT_VIDEO) != 0)
@@ -21,7 +21,7 @@ int WindowManager::initializeSDL ()
 }
 
 
-int WindowManager::createMainWindow ()
+int WindowManager::CreateMainWindow ()
 {
 	
 	SDL_DisplayMode displayMode;
@@ -53,7 +53,7 @@ int WindowManager::createMainWindow ()
 }
 
 
-int WindowManager::shutdownSDL ()
+int WindowManager::ShutdownSDL ()
 {
 	
 	TTF_Quit ();
