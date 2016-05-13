@@ -4,33 +4,23 @@
 int EventManager::PollInput (WindowManager &windowManager)
 {
 	
-	SDL_Event event;
-	while (SDL_PollEvent (&event) != 0)
+	while (SDL_PollEvent (&m_event) != 0)
 	{
 		
-		if (SDL_PollEvent (&event))
+		if (SDL_PollEvent (&m_event))
 		{
 			
-			switch (event.type)
+			switch (m_event.type)
 			{
 				
 				case SDL_QUIT:
-					/*if (windowManager.ShutdownSDL () != 0)
-					{
-						
-						return 1;
-					} else {
-						
-						return 0;
-					}*/
-					return 1;
+					return 2;
 					break;
 					
 				case SDL_MOUSEBUTTONDOWN:
 					break;
 					
 				case SDL_TEXTINPUT:
-					//inputText += event.text.text;
 					break;
 		    }
 		}

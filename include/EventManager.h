@@ -6,10 +6,12 @@
 
 class EventManager
 {
+	
 public:
 	int PollInput (WindowManager &windowManager);
 
 private:
+	SDL_Event m_event;
 	
 };
 
