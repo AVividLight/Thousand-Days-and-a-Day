@@ -11,6 +11,9 @@ int LoopController::CoreLoop ()
 		return 1;
 	}
 	
+	renderManager.PrepareRandomFunction ();
+	
+	
 	while (m_mainLoop == true)
 	{
 		
@@ -58,7 +61,8 @@ int LoopController::EventsLogicRendering ()
 		2. Rendering
 	*/
 	
-	const unsigned int eventLoop = eventManager.PollInput (windowManager);
+#pragma mark EVENT
+	const int eventLoop = eventManager.PollInput (windowManager);
 	
 	switch (eventLoop)
 	{
@@ -73,6 +77,24 @@ int LoopController::EventsLogicRendering ()
 		case 2:
 			m_mainLoop = false;
 			break;
+	}
+	
+#pragma mark LOGIC
+	const int logicTEMP = logicDelegate.PLACEHOLDERFUNCTION ();
+	
+	if (logicTEMP != 0)
+	{
+		
+		return 1;
+	}
+	
+#pragma mark RENDER
+	const int renderUpdate = renderManager.UpdateRenderer (windowManager);
+	
+	if (renderUpdate != 0)
+	{
+		
+		return 1;
 	}
 	
 	return 0;

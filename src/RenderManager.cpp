@@ -1,12 +1,24 @@
 #include "RenderManager.h"
 
-/*
 
-	TTF_Font *primaryFont = TTF_OpenFont (font, 24);
+void RenderManager::PrepareRandomFunction ()
+{
+	
+	m_distrobution = std::uniform_int_distribution<> (0, 9);
+}
+
+
+int RenderManager::UpdateRenderer (WindowManager &windowManager)
+{
+	
+	sprintf (m_RANDOMCSTRING, "%d", RandomInt ());
+	
+	
+	TTF_Font *primaryFont = TTF_OpenFont (m_font, 24);
 	SDL_Color colorWhite = {192, 192, 192};	
 
-	SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended (primaryFont, "Thousand Days and a Day", colorWhite);
-	SDL_Texture* message = SDL_CreateTextureFromSurface (renderer, surfaceMessage);
+	SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended (primaryFont, m_RANDOMCSTRING, m_colourWhite);
+	SDL_Texture* message = SDL_CreateTextureFromSurface (windowManager.renderer, surfaceMessage);
 
 	SDL_Rect message_rect;
 	if (SDL_QueryTexture (message, NULL, NULL, &message_rect.w, &message_rect.h) != 0)
@@ -15,11 +27,21 @@
 		std::cout << "Unable to query texture!" << std::endl;
 	}
 
-	message_rect.x = ((MAIN_WINDOW_WIDTH / 2) - (message_rect.w / 2));
-	message_rect.y = ((MAIN_WINDOW_HEIGHT / 2) - (message_rect.h / 2));
+	message_rect.x = ((windowManager.MAIN_WINDOW_WIDTH / 2) - (message_rect.w / 2));
+	message_rect.y = ((windowManager.MAIN_WINDOW_HEIGHT / 2) - (message_rect.h / 2));
 
-	SDL_RenderClear(renderer);
-	SDL_RenderCopy (renderer, message, NULL, &message_rect);
-	SDL_RenderPresent(renderer);
+	SDL_RenderClear(windowManager.renderer);
+	SDL_RenderCopy (windowManager.renderer, message, NULL, &message_rect);
+	SDL_RenderPresent(windowManager.renderer);
+	
+	TTF_CloseFont (primaryFont);
+	
+	return 0;
+}
 
-*/
+
+int RenderManager::RandomInt ()
+{
+
+	return m_distrobution (m_generator);
+}

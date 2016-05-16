@@ -4,7 +4,10 @@
 #include <iostream>
 
 #include "WindowManager.h"
+
 #include "EventManager.h"
+#include "LogicDelegate.h"
+#include "RenderManager.h"
 
 
 class LoopController
@@ -12,7 +15,10 @@ class LoopController
 	
 public:
 	WindowManager windowManager;
+	
 	EventManager eventManager;
+	LogicDelegate logicDelegate;
+	RenderManager renderManager;
 	
 	int CoreLoop ();
 

@@ -26,7 +26,7 @@ include_directories(include)
 
 
 #Add our code to the project
-add_executable(ThousandDaysAndADay src/main.cpp src/LoopController.cpp src/WindowManager.cpp src/EventManager.cpp src/RenderManager.cpp lib/pugixml.cpp)
+add_executable(ThousandDaysAndADay src/main.cpp src/LoopController.cpp src/EventManager.cpp src/LogicDelegate.cpp src/RenderManager.cpp src/WindowManager.cpp lib/pugixml.cpp)
 
 
 

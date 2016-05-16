@@ -32,19 +32,19 @@ int WindowManager::CreateMainWindow ()
 		return 1;
 	}
 	
-	m_window = SDL_CreateWindow (m_MAIN_WINDOW_TITLE, ((displayMode.w / 2) - m_MAIN_WINDOW_WIDTH / 2), ((displayMode.h / 2) - m_MAIN_WINDOW_HEIGHT / 2), m_MAIN_WINDOW_WIDTH, m_MAIN_WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
-	if (m_window == nullptr)
+	window = SDL_CreateWindow (MAIN_WINDOW_TITLE, ((displayMode.w / 2) - MAIN_WINDOW_WIDTH / 2), ((displayMode.h / 2) - MAIN_WINDOW_HEIGHT / 2), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+	if (window == nullptr)
 	{
 	
 		SDL_Quit ();
 		return 1;
 	}
 	
-	m_renderer = SDL_CreateRenderer (m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (m_renderer == nullptr)
+	renderer = SDL_CreateRenderer (window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (renderer == nullptr)
 	{
 	
-		cleanup (m_window);
+		cleanup (window);
 		SDL_Quit ();
 		return 1;
 	}
@@ -57,7 +57,7 @@ int WindowManager::ShutdownSDL ()
 {
 	
 	TTF_Quit ();
-	cleanup (m_renderer, m_window);
+	cleanup (renderer, window);
 	SDL_Quit ();
 	
 	return 0;
