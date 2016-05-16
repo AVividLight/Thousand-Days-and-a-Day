@@ -11,7 +11,7 @@ int LoopController::CoreLoop ()
 		return 1;
 	}
 	
-	renderManager.PrepareRandomFunction ();
+	renderManager.Initialize ();
 	
 	
 	while (m_mainLoop == true)
@@ -26,6 +26,7 @@ int LoopController::CoreLoop ()
 		}
 	}
 	
+	renderManager.Destroy ();
 	windowManager.ShutdownSDL ();
 	return 0;
 }

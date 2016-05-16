@@ -1,10 +1,19 @@
 #include "RenderManager.h"
 
 
-void RenderManager::PrepareRandomFunction ()
+void RenderManager::Initialize ()
 {
 	
 	m_distrobution = std::uniform_int_distribution<> (0, 9);
+	
+	m_prettyWhiteFont = TTF_OpenFont (m_font, 24);
+}
+
+
+void RenderManager::Destroy ()
+{
+	
+	TTF_CloseFont (m_prettyWhiteFont);
 }
 
 
@@ -13,11 +22,8 @@ int RenderManager::UpdateRenderer (WindowManager &windowManager)
 	
 	sprintf (m_RANDOMCSTRING, "%d", RandomInt ());
 	
-	
-	TTF_Font *primaryFont = TTF_OpenFont (m_font, 24);
-	SDL_Color colorWhite = {192, 192, 192};	
 
-	SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended (primaryFont, m_RANDOMCSTRING, m_colourWhite);
+	SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended (m_prettyWhiteFont, m_RANDOMCSTRING, m_colourWhite);
 	SDL_Texture* message = SDL_CreateTextureFromSurface (windowManager.renderer, surfaceMessage);
 
 	SDL_Rect message_rect;
@@ -33,8 +39,6 @@ int RenderManager::UpdateRenderer (WindowManager &windowManager)
 	SDL_RenderClear(windowManager.renderer);
 	SDL_RenderCopy (windowManager.renderer, message, NULL, &message_rect);
 	SDL_RenderPresent(windowManager.renderer);
-	
-	TTF_CloseFont (primaryFont);
 	
 	return 0;
 }

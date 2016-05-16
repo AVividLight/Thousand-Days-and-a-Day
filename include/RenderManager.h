@@ -15,7 +15,8 @@ class RenderManager
 {
 	
 public:
-	void PrepareRandomFunction ();
+	void Initialize ();
+	void Destroy ();
 	int UpdateRenderer (WindowManager &windowManager);
 
 private:
