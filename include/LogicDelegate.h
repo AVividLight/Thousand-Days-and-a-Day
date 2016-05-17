@@ -1,15 +1,22 @@
 #ifndef LOGICDELEGATE_H
 #define LOGICDELEGATE_H
 
+#include <random>
+
+#include "RenderManager.h"
+
 
 class LogicDelegate
 {
 	
 public:
-	int PLACEHOLDERFUNCTION ();
+	void Initialize ();
+	int PLACEHOLDERFUNCTION (RenderManager &renderManager);
 
 private:
-	/* data */
+	std::default_random_engine m_generator;
+	std::uniform_int_distribution<> m_distrobution;
+	int RandomInt ();
 };
 
 

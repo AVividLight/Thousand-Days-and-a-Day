@@ -11,6 +11,7 @@ int LoopController::CoreLoop ()
 		return 1;
 	}
 	
+	logicDelegate.Initialize ();
 	renderManager.Initialize ();
 	
 	
@@ -81,7 +82,7 @@ int LoopController::EventsLogicRendering ()
 	}
 	
 #pragma mark LOGIC
-	const int logicTEMP = logicDelegate.PLACEHOLDERFUNCTION ();
+	const int logicTEMP = logicDelegate.PLACEHOLDERFUNCTION (renderManager);
 	
 	if (logicTEMP != 0)
 	{
