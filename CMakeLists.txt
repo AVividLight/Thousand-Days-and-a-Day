@@ -7,6 +7,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ThousandDaysAndADay_SOURCE_DIR}/cm
 set(BIN_DIR ${ThousandDaysAndADay_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+#Define Preprocessor Macros (RESDIR found in kiss_sdl.h, used to located KISS assets (font files, textures, etc.))
+add_definitions(-DRESDIR=\"../../src/\")
 
 #Find SDL2, our core window library
 find_package(SDL2 REQUIRED)
