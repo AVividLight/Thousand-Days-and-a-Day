@@ -11,7 +11,9 @@ void LogicDelegate::Initialize ()
 int LogicDelegate::PLACEHOLDERFUNCTION (RenderManager &renderManager)
 {
 	
-	sprintf (m_RANDOMCSTRING, "%d", RandomInt ());
+	
+	sprintf (renderManager.RANDOMCSTRING, "%d", RandomInt ());
+	renderManager.storyRenderer.updateStory = true;
 	return 0;
 }
 

@@ -25,6 +25,10 @@ public:
 private:
 	bool m_mainLoop = true;
 	
+	int m_eventLoop = true;
+	int m_logicLoop = true;
+	int m_renderLoop = true;
+	
 	int StartSDL ();
 	int EventsLogicRendering ();
 };

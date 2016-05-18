@@ -64,9 +64,9 @@ int LoopController::EventsLogicRendering ()
 	*/
 	
 #pragma mark EVENT
-	const int eventLoop = eventManager.PollInput (windowManager);
+	m_eventLoop = eventManager.PollInput (windowManager);
 	
-	switch (eventLoop)
+	switch (m_eventLoop)
 	{
 		
 		case 0:
@@ -82,21 +82,25 @@ int LoopController::EventsLogicRendering ()
 	}
 	
 #pragma mark LOGIC
-	const int logicTEMP = logicDelegate.PLACEHOLDERFUNCTION (renderManager);
+	m_logicLoop = logicDelegate.PLACEHOLDERFUNCTION (renderManager);
 	
-	if (logicTEMP != 0)
+	if (m_logicLoop != 0)
 	{
 		
 		return 1;
 	}
 	
 #pragma mark RENDER
-	const int renderUpdate = renderManager.UpdateRenderer (windowManager);
-	
-	if (renderUpdate != 0)
+	if (renderManager.FrameUpdate () == true)
 	{
 		
-		return 1;
+		m_renderLoop = renderManager.UpdateRenderer (windowManager);
+		
+		if (m_renderLoop != 0)
+		{
+			
+			return 1;
+		}
 	}
 	
 	return 0;

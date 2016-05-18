@@ -15,32 +15,48 @@ void RenderManager::Destroy ()
 }
 
 
+bool RenderManager::FrameUpdate ()
+{
+	
+	if (storyRenderer.updateStory == true)
+		return true;
+	else
+		return false;
+}
+
+
 int RenderManager::UpdateRenderer (WindowManager &windowManager)
 {
 	
-	if (frameUpdate == true)
-	{	
-    	
-		//SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended (m_prettyWhiteFont, m_RANDOMCSTRING, m_colourWhite);
-		storySurface = TTF_RenderUTF8_Blended (m_prettyWhiteFont, m_RANDOMCSTRING, m_colourWhite);
+	if (RenderStory (windowManager) != 0)
+	{
 		
-		SDL_Texture* message = SDL_CreateTextureFromSurface (windowManager.renderer, surfaceMessage);
-    	
-		SDL_Rect message_rect;
-		if (SDL_QueryTexture (message, NULL, NULL, &message_rect.w, &message_rect.h) != 0)
-		{
-			
-			std::cout << "Unable to query texture!" << std::endl;
-		}
-    	
-		message_rect.x = ((windowManager.MAIN_WINDOW_WIDTH / 2) - (message_rect.w / 2));
-		message_rect.y = ((windowManager.MAIN_WINDOW_HEIGHT / 2) - (message_rect.h / 2));
-    	
-		SDL_RenderClear(windowManager.renderer);
-		SDL_RenderCopy (windowManager.renderer, message, NULL, &message_rect);
-		SDL_RenderPresent(windowManager.renderer);
-		frameUpdate = false;
+		std::cout << "Unable to create story surface or texture!" << std::endl;
 	}
+    
+	if (SDL_QueryTexture (storyRenderer.storyTexture, NULL, NULL, &storyRenderer.storyRect.w, &storyRenderer.storyRect.h) != 0)
+	{
+		
+		std::cout << "Unable to query texture!" << std::endl;
+	}
+    
+	storyRenderer.storyRect.x = ((windowManager.MAIN_WINDOW_WIDTH / 2) - (storyRenderer.storyRect.w / 2));
+	storyRenderer.storyRect.y = ((windowManager.MAIN_WINDOW_HEIGHT / 2) - (storyRenderer.storyRect.h / 2));
+    
+	SDL_RenderClear(windowManager.renderer);
+	SDL_RenderCopy (windowManager.renderer, storyRenderer.storyTexture, NULL, &storyRenderer.storyRect);
+	SDL_RenderPresent(windowManager.renderer);
+	
+	return 0;
+}
+
+
+int RenderManager::RenderStory (WindowManager &windowManager)
+{
+	
+	storyRenderer.storySurface = TTF_RenderUTF8_Blended (m_prettyWhiteFont, RANDOMCSTRING, m_colourWhite);
+	storyRenderer.storyTexture = SDL_CreateTextureFromSurface (windowManager.renderer, storyRenderer.storySurface);
+	storyRenderer.updateStory = false;
 	
 	return 0;
 }
