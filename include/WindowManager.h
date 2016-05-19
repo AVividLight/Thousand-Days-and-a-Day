@@ -21,8 +21,8 @@ public:
 	SDL_Renderer *renderer;
 	
 	const char MAIN_WINDOW_TITLE[24] = "Thousand Days and a Day";
-	const int MAIN_WINDOW_WIDTH = 800;
-	const int MAIN_WINDOW_HEIGHT = 600;
+	const int MAIN_WINDOW_WIDTH = 1024;
+	const int MAIN_WINDOW_HEIGHT = 576;
 
 private:
 
