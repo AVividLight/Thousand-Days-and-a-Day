@@ -1,7 +1,10 @@
 # Thousand Days and a Day
 By 2Cat Studios
 
-NOTE: This README (like the project) is under construction. Expect things to change.
+NOTE: The README (like the project) is under construction. Expect things to change.
+
+#NOTICE:
+>This project has been merged with [LightYear by 2Cat Studios](https://github.com/2CatStudios/LightYear), please see the new repo.
 
 
 
