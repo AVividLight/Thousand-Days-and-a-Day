@@ -4,7 +4,7 @@ By 2Cat Studios
 NOTE: The README (like the project) is under construction. Expect things to change.
 
 #NOTICE:
->This project has been merged with [LightYear by 2Cat Studios](https://github.com/2CatStudios/LightYear), please see the new repo.
+>This project has been merged into [LightYear by 2Cat Studios](https://github.com/2CatStudios/LightYear), please see the new repo.
 
 
 
